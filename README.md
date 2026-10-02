@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Money Copilot
 
 A modern personal expense tracker built for **college students and young adults in India**.
@@ -61,3 +62,7 @@ src/
 ## Note
 
 All insights and affordability numbers are **calculations from your data**, not financial advice.
+=======
+# Money-Copilot
+Personal Expense Tracker App
+>>>>>>> 40a225a8673822ad4444a1c6a12579ee08bf0107
