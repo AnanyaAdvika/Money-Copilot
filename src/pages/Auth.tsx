@@ -1,4 +1,5 @@
-import { FormEvent, useState } from 'react'
+import { useState } from 'react'
+import type { FormEvent } from 'react'
 import { Wallet, Eye, EyeOff, LogIn, UserPlus } from 'lucide-react'
 import { useAuth } from '@/context/AuthContext'
 
