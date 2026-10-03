@@ -4,9 +4,10 @@ import { Card, CardBody, CardHeader, CardTitle } from '@/components/ui/Card'
 import { Input } from '@/components/ui/Input'
 import { ConfirmDialog } from '@/components/ui/Modal'
 import { useApp } from '@/context/AppContext'
+import { useAuth } from '@/context/AuthContext'
 import { useToast } from '@/context/ToastContext'
 import { downloadCSV, exportTransactionsCSV } from '@/lib/calculations'
-import { Moon, RotateCcw, Sun, Trash2 } from 'lucide-react'
+import { LogOut, Moon, RotateCcw, Sun, Trash2 } from 'lucide-react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -19,6 +20,7 @@ export function SettingsPage() {
     transactions,
   } = useApp()
   const { toast } = useToast()
+  const { user, signOut } = useAuth()
   const [confirmClear, setConfirmClear] = useState(false)
   const [confirmReset, setConfirmReset] = useState(false)
   const sm = settings.studentMode
@@ -61,6 +63,25 @@ export function SettingsPage() {
               )}
             </Button>
           </div>
+        </CardBody>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Account</CardTitle>
+        </CardHeader>
+        <CardBody className="space-y-3">
+          <div className="rounded-xl border border-[var(--color-border)] px-4 py-3">
+            <p className="font-medium text-sm">{user?.name}</p>
+            <p className="text-xs text-[var(--color-ink-muted)]">{user?.email}</p>
+          </div>
+          <Button
+            variant="outline"
+            className="w-full justify-start"
+            onClick={signOut}
+          >
+            <LogOut className="h-4 w-4" /> Log out
+          </Button>
         </CardBody>
       </Card>
 
